@@ -10,7 +10,7 @@ import topojson from 'topojson';
 var d3Globe = {};
 
 d3Globe.go = function(){
-  
+
   var width = 960,
       height = 960;
 

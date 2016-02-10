@@ -18,8 +18,8 @@ var sequelize = new Sequelize('worldMapDB', 'root', '', {
 //TODO: These methods successfully perform our CRUD operations
 
 var Country = sequelize.define('country', {
-    countryName: Sequelize.STRING,
-    localId: Sequelize.INTEGER
+    localeId: Sequelize.INTEGER,
+    countryName: Sequelize.STRING
   },
 
   {

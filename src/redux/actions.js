@@ -1,80 +1,65 @@
-
-
-
-
+import axios from 'axios'
 /*
  * action types
  */
+// export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER'
 
-export const ADD_TODO = 'ADD_TODO'
-export const COMPLETE_TODO = 'COMPLETE_TODO'
-export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER'
-
-/*
- * other constants
- */
-
-export const VisibilityFilters = {
-  SHOW_ALL: 'SHOW_ALL',
-  SHOW_COMPLETED: 'SHOW_COMPLETED',
-  SHOW_ACTIVE: 'SHOW_ACTIVE'
-}
 
 /*
  * action creators
  */
+// Send action to server
+export const REQUEST_COUNTRIES = 'REQUEST_COUNTRIES'
+export const requestCountries = () => {
+  console.log("inside request countries")
+  const url = '//localhost:3001/api/countries'
+  const request = axios({
+    url: url,
+    timeout: 20000,
+    method: 'get',
+    responseType: 'json'
+  }).then(function(data){
+    console.log(data)
+  }).catch()
 
-export function addTodo(text) {
-  return { type: ADD_TODO, text }
+  console.log("Action request", request)
+
+  return {
+    type: REQUEST_COUNTRIES,
+    payload: request
+  }
 }
 
-export function completeTodo(index) {
-  return { type: COMPLETE_TODO, index }
-}
-
-export function setVisibilityFilter(filter) {
-  return { type: SET_VISIBILITY_FILTER, filter }
-}
-
-
-
-
-
-// /*
-//  * action types
-//  */
-// export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER'
-
-// export const LOAD_COUNTRIES = 'LOAD_COUNTRIES'
-
-// /*
-//  * other constants
-//  */
-
-// export const VisibilityFilters = {
-//   SHOW_ALL: 'SHOW_ALL',
-//   SHOW_TEN: 'SHOW_TEN'
-// }
-
-// /*
-//  * action creators
-//  */
-// export function setVisibilityFilter() {
+requestCountries();
+// Recieved Action from server
+// export const RECEIVED_COUNTRIES = 'RECEIVED_COUNTRIES'
+// export const receivedCountries = (countryList, json) => {
 //   return {
-//     type: SET_VISIBILITY_FILTER, filter
+//     type: RECEIVED_COUNTRIES,
+//     countryList,
+//     list: json.data.children.map(child => child.data),
 //   }
 // }
 
-// export function loadCountries(text) {
-//   return { type: LOAD_COUNTRIES, text }
-// }
 
-// /////////////////
-// //STATE EXAMPLE
-// // {
-// //   visibilityFilter: 'SHOW_ALL',
-// //   countries: [{
-// //     countryName: 'country',
-// //     localeId: 5
-// //   }]
-// // }
+// Thunk action creator
+// export const fetchCountries = () => {
+//   return (dispatch) => {
+//     console.log(dispatch);
+//     dispatch(requestCountries( ))
+//     return fetch('http://localhost:3000/api/countries.json')
+//         .then(response => response.json())
+//         .then(json =>
+//           dispatch(receivedCountries(countryList, json))
+//         )
+//   }
+// }
+/////////////////
+//STATE EXAMPLE
+// {
+//   visibilityFilter: 'SHOW_ALL',
+//   countries: [{
+//     countryName: 'country',
+//     localeId: 5
+//   }]
+// }
