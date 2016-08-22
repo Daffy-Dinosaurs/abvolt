@@ -22,7 +22,7 @@ class Bar extends Component {
   setYear(event) {
     console.log('props in setYear: ', this.props);
     this.setState({ year: event.target.value },
-      this.getCurrentIssue(this.props.allData, this.state.year, this.state.category)
+      this.getCurrentIssue(this.props.allData, this.state.year, this.state.currentIssue)
     );
   };
 
@@ -34,6 +34,7 @@ class Bar extends Component {
   // create category selector and use it with the annual selector. We are then
   // setting the color pattern.
   getCurrentIssue(data, year, category) {
+    console.log('args in getCurrentIssue: ', data, year, category);
     const info = colorPopulate(issueSelect(overallAnnualData(data, year), category));
     worldGlobe.renderGlobeStats(info[0], info[1], info[2], category);
   };

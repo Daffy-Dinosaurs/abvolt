@@ -1,4 +1,4 @@
-import { GET_TWEETS } from '../actions/media_actions';
+import { GET_TWEETS } from '../actions/types';
 
 const initialState = {};
 

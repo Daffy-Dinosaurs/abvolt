@@ -1,4 +1,4 @@
-import { GET_WATER_DATA } from '../actions/db_actions';
+import { GET_WATER_DATA } from '../actions/types';
 
 const intialState = {};
 

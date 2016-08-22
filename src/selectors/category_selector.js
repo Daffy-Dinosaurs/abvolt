@@ -1,4 +1,7 @@
+//NOTE: consider bring in lodash for these selectors
+
 export function issueSelect(data, category) {
+  console.log('args in issueSelect: ', data, category);
   const storage = [];
 
   for (var i = 0; i < data.length; i++) {
@@ -12,25 +15,29 @@ export function issueSelect(data, category) {
 };
 
 export function colorPopulate(data) {
+  console.log('args in colorPopulate: ', data);
   let range = [];
   let lowrange = undefined;
   let highrange = 0;
 
-  if (data.value !== 0) {
-    if (lowrange === undefined) {
-      lowrange = data.value;
-    }
+  for (var i = 0; i < data.length; i++) {
+    if (data[i].value !== 0) {
+      if (lowrange === undefined) {
+        lowrange = data[i].value;
+      }
 
-    if (lowrange > data.value) {
-      lowrange = data.value;
-    }
+      if (lowrange > data[i].value) {
+        lowrange = data[i].value;
+      }
 
-    if (highrange < data.value) {
-      highrange = data.value;
-    }
+      if (highrange < data[i].value) {
+        highrange = data[i].value;
+      }
 
-    range.push(data);
+      range.push(data[i]);
+    }
   }
 
+  console.log('colorPopulate returns: ', [range, lowrange, highrange]);
   return [range, lowrange, highrange];
 }

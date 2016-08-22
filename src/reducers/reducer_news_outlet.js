@@ -1,4 +1,4 @@
-import { GET_NEWS } from '../actions/media_actions';
+import { GET_NEWS } from '../actions/types';
 
 const intialState = {};
 
