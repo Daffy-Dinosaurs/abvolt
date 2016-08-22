@@ -86,10 +86,10 @@ class VictoryPlots extends Component {
         return (
           <div className="graphs-visible">
           <div>
-          <button className="btn-plot" onClick = { 
+          <button className="btn-plot" onClick = {
             this.processingData.bind(this) }>Plot Graph
           </button>
-          <button className="btn-close" onClick = { 
+          <button className="btn-close" onClick = {
             this.hide.bind(this)}>X
           </button>
           </div>
@@ -105,7 +105,7 @@ class VictoryPlots extends Component {
             dataAttributes= {[
               { fill: 'cornflowerblue' },
             ]}
-            animate={{velocity: 0.02}}
+            animate={{ velocity: 0.02 }}
             />
           </VictoryChart>
           <VictoryChart>
@@ -120,7 +120,7 @@ class VictoryPlots extends Component {
           dataAttributes= {[
             { fill: 'orange' },
           ]}
-          animate={{velocity: 0.02}}
+          animate={{ velocity: 0.02 }}
           />
           </VictoryChart>
           <VictoryChart>
@@ -135,7 +135,7 @@ class VictoryPlots extends Component {
           dataAttributes= {[
             { fill: 'green' },
           ]}
-          animate={{velocity: 0.02}}
+          animate={{ velocity: 0.02 }}
           />
           </VictoryChart>
           </div>
@@ -145,7 +145,7 @@ class VictoryPlots extends Component {
 
     if (!this.state.visible || (!this.state.waterData)) {
       return <div className="graphs">
-      <h1 onClick={this.show.bind(this)}><img src="/src/images/chart.png" alt="chart" /></h1>
+      <h1 onClick={this.show.bind(this)}><img src="/src/images/chart-min.png" alt="chart" /></h1>
       </div>;
     }
   }

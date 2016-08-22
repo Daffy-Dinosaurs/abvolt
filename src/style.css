@@ -1,6 +1,6 @@
 body.app{
   font-family: 'Lato', sans-serif;
-  background: url("/src/images/bg.jpg") no-repeat center center fixed;
+  background: url("/src/images/bg-min.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -9,8 +9,8 @@ body.app{
   overflow: hidden;
 }
 
-::-webkit-scrollbar { 
-    display: none; 
+::-webkit-scrollbar {
+    display: none;
 }
 
 /*.heartbeat h1{

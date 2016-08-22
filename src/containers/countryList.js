@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { requestCountries } from '../actions/request_country';
 import { bindActionCreators } from 'redux';
@@ -18,12 +18,14 @@ class CountryList extends Component {
     this.state.term;
   }
 
-
   renderList() {
 
     return this.props.countryList.map((country) => {
       return (
-          <li className="list-country-item" id={'c' + country.localeId}
+
+
+
+<li className="list-country-item" id={'c' + country.localeId}
             key={country.countryName}
             onClick={(event) => {
               event.preventDefault();

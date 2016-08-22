@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getNews } from '../actions/get_news_feed';
 import { clearNews } from '../actions/clear_news_feed';
@@ -61,7 +61,7 @@ class NewsOutlet extends Component {
       return (
         <div className="newsfeed-feed">
           <h1 onClick={this.show.bind(this)}>
-            <img src="/src/images/news.png" alt="news" />
+            <img src="/src/images/news-min.png" alt="news" />
           </h1>
         </div>
       );

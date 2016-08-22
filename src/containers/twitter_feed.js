@@ -73,7 +73,7 @@ class TwitterFeed extends Component {
           <h1 onClick= {
             this.clearTweet.bind(this),
             this.hide.bind(this)
-          }><img src="/src/images/twitter.png" alt="twitter" /></h1>
+          }><img src="/src/images/twitter-min.png" alt="twitter" /></h1>
           { this.renderTweets() }
           </div>
         );
@@ -85,7 +85,7 @@ class TwitterFeed extends Component {
       return (
         <div className="tweet-feed">
           <h1 onClick={this.show.bind(this)}>
-            <img src="/src/images/twitter.png" alt="twitter" />
+            <img src="/src/images/twitter-min.png" alt="twitter" />
           </h1>
         </div>
       );
