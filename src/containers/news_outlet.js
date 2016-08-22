@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getNews } from '../actions/get_news_feed';
-import { clearNews } from '../actions/clear_news_feed';
+import { clearNews, getNews } from '../actions/media_actions';
 
 class NewsOutlet extends Component {
 

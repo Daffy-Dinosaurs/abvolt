@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import _ from 'lodash';;
-import { clearTweets } from '../actions/clear_tweets';
-import { getTweets } from '../actions/get_twitter_feed';
+import { clearTweets, getTweets } from '../actions/media_actions';
 
 class TwitterFeed extends Component {
   constructor(props) {

@@ -7,7 +7,7 @@ import { VictoryChart } from 'victory-chart';
 import { VictoryLine } from 'victory-line';
 import { VictoryAxis } from 'victory-axis';
 import { VictoryBar } from 'victory-bar';
-import { getWaterData } from '../actions/get_water_data';
+import { getWaterData } from '../actions/db_actions';
 import CountryList from '../containers/countryList';
 
 var plottingData = [

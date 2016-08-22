@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { clearCountry } from '../actions/clear_country';
+import { clearCountry } from '../actions/global_actions';
 
 class ActiveCountry extends Component {
 

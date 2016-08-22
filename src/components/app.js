@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Link } from 'react-router';
 import ActiveCountry from '../containers/country-view';
 import CountryList from '../containers/countryList';
@@ -9,9 +11,23 @@ import VictoryPlots from '../containers/d3Graphs';
 import Intro from './introduction';
 import NewsOutlet from '../containers/news_outlet';
 import UserTour from './tourTips';
+import { requestCountries, getAllData } from '../actions/db_actions';
 
+class App extends Component{
+  constructor(props) {
+    super(props);
 
-export default class App extends Component{
+    console.log('these are the props in App: ', this.props);
+
+    //NOTE: This should run once to populate the state with countries
+    // this.props.requestCountries();
+    // this.props.getAllData();
+  }
+
+  componentDidMount() {
+    this.props.requestCountries();
+    // this.props.getAllData();
+  }
 
   render() {
     // <Intro />
@@ -32,3 +48,12 @@ export default class App extends Component{
     );
   }
 }
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    requestCountries,
+    getAllData,
+  }, dispatch);
+};
+
+export default connect(null, mapDispatchToProps)(App);

@@ -1,42 +1,37 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { requestCountries } from '../actions/request_country';
+
 import { bindActionCreators } from 'redux';
-import { selectCountry } from '../actions/country_select';
-import { globeAction } from '../actions/globe_action';
-import { getTweets } from '../actions/get_twitter_feed';
-import { getNews } from '../actions/get_news_feed';
-import { getWaterData } from '../actions/get_water_data';
+import { globeAction, selectCountry } from '../actions/global_actions';
+import { getTweets, getNews } from '../actions/media_actions';
+import { getWaterData } from '../actions/db_actions';
 
 class CountryList extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      term: this.props.requestCountries(),
+      //NOTE: If I need this the pull it from props
+      // term: this.props.requestCountries(),
     };
-    this.state.term;
+
+    //NOTE: not sure why this is here
+    // this.state.term;
   }
 
   renderList() {
-
     return this.props.countryList.map((country) => {
       return (
-
-
-
-<li className="list-country-item" id={'c' + country.localeId}
-            key={country.countryName}
-            onClick={(event) => {
-              event.preventDefault();
-              this.props.selectCountry(country);
-              this.props.globeAction(country);
-              this.props.getTweets(country);
-              this.props.getNews(country);
-              this.props.getWaterData(country.id);
-            }}>
-            { country.countryName }
-          </li>
+        <li className="list-country-item" id={'c' + country.localeId}
+        key={country.countryName}
+        onClick={(event) => {
+          event.preventDefault();
+          this.props.selectCountry(country);
+          this.props.globeAction(country);
+          this.props.getTweets(country);
+          this.props.getNews(country);
+          this.props.getWaterData(country.id);
+        }}>{ country.countryName }</li>
       );
     });
   }
@@ -57,7 +52,6 @@ function mapStateToProps({ countryList }) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    requestCountries,
     selectCountry,
     globeAction,
     getTweets,

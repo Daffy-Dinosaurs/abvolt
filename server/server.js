@@ -85,8 +85,8 @@ app.get('/api/countries', function (req, res) {
 app.get('/api/statistics', function (req, res) {
   model.CountryStatistic.findAll({ include: [
     { model: model.Country,
-      as: model.Country.id, }, ],
- }).then(function (stats) {
+      as: model.Country.id, },],
+  }).then(function (stats) {
     if (stats) {
       res.status(200).send(stats);
     } else {
@@ -112,10 +112,10 @@ app.get('/api/statistics/:CountryId', function (req, res) {
     where: {
       CountryId: req.params.CountryId,
     },
-    include:[{
+    include: [{
       model: model.Country,
       as: model.Country.id,
-    }, ],
+    },],
   }).then(function (stats) {
     if (stats) {
       res.status(200).send(stats);

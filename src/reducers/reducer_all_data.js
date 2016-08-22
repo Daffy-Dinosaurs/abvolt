@@ -1,4 +1,4 @@
-import { COUNTRY_DATA } from '../actions/get_all_data';
+import { COUNTRY_DATA } from '../actions/db_actions';
 
 const intialState = {};
 
