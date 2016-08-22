@@ -11,7 +11,6 @@ export function annualData(countryData, year) {
 }
 
 export function overallAnnualData(data, year) {
-  console.log('args in overallAnnualData: ', data, year);
   let storage = [];
 
   for (var i = 0; i < data.length; i++) {
@@ -20,6 +19,5 @@ export function overallAnnualData(data, year) {
     }
   }
 
-  console.log('this is storage in overallAnnualData: ', storage);
   return storage;
 }

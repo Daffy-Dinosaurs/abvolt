@@ -6,7 +6,7 @@ import ActiveCountry from '../containers/country-view';
 import CountryList from '../containers/countryList';
 import TwitterFeed from '../containers/twitter_feed';
 import Globe from '../containers/globeContainer';
-import Bar from '../containers/bar';
+import AnnualDataSlider from '../containers/annual_slider_bar';
 import VictoryPlots from '../containers/d3Graphs';
 import Intro from './introduction';
 import NewsOutlet from '../containers/news_outlet';
@@ -35,7 +35,7 @@ class App extends Component{
         <div className="globe">
           <Globe />
         </div>
-        <Bar />
+        <AnnualDataSlider />
         <ActiveCountry />
         <NewsOutlet />
         <TwitterFeed />
