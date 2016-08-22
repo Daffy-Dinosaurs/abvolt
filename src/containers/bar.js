@@ -13,12 +13,14 @@ class Bar extends Component {
       currentIssue: '',
     };
 
+    this.setYear = this.setYear.bind(this);
     this.getCurrentIssue = this.getCurrentIssue.bind(this);
     this.setCategory = this.setCategory.bind(this);
   };
 
   //NOTE: My main concern is whether the category assignment will effect this
   setYear(event) {
+    console.log('props in setYear: ', this.props);
     this.setState({ year: event.target.value },
       this.getCurrentIssue(this.props.allData, this.state.year, this.state.category)
     );
@@ -39,28 +41,25 @@ class Bar extends Component {
   render() {
     return (
 
-
-
-
-
 <div>
       <div className="barSlider">
         <input type="range" min="1990"
             max="2015"
             step="1"
             id="fader"
-            onChange={ this.getAnnualData }
+            onChange={ this.setYear }
             >
           <datalist id="steplist">
-          <output id="volume">2002</output>
+            <output id="volume">2002</output>
           </datalist>
         </input>
       <span>{this.state.year}</span>
       </div>
   <div className="issues">
     <ul>
-    <li className='category' onClick={ function () {this.setCategory('Poverty').bind(this);}}>Poverty</li>
-    <li className='category' onClick={ function () {this.setCategory('Water Pollution').bind(this);}}>Water Pollution</li>
+    <li className='category' onClick={this.setCategory.bind(this, 'Poverty')}>Poverty</li>
+    <li className='category' onClick={this.setCategory.bind(this, 'Water Pollution')}>Water Pollution</li>
+    <li className='category' onClick={this.setCategory.bind(this, 'Food Scarcity')}>Food Scarcity</li>
     </ul>
   </div>
 </div>

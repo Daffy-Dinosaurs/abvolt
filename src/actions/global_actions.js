@@ -19,7 +19,7 @@ export function selectCountry(country) {
 export function clearCountry() {
 
   return {
-    type: globeAction.CLEAR_COUNTRY,
+    type: globalAction.CLEAR_COUNTRY,
     payload: {},
   };
 }

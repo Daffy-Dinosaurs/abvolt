@@ -7,6 +7,7 @@ export function issueSelect(data, category) {
     };
   };
 
+  console.log('this is storage in issueSelect: ', storage);
   return storage;
 };
 
@@ -17,18 +18,18 @@ export function colorPopulate(data) {
 
   if (data.value !== 0) {
     if (lowrange === undefined) {
-      lowrange = data[i].value;
+      lowrange = data.value;
     }
 
-    if (lowrange > data[i].value) {
-      lowrange = data[i].value;
+    if (lowrange > data.value) {
+      lowrange = data.value;
     }
 
-    if (highrange < data[i].value) {
-      highrange = data[i].value;
+    if (highrange < data.value) {
+      highrange = data.value;
     }
 
-    range.push(data[i]);
+    range.push(data);
   }
 
   return [range, lowrange, highrange];

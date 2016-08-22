@@ -3,12 +3,10 @@ import axios from 'axios';
 
 console.log('the actions in db.actions: ', dbActions);
 //------------------------------------------------------------------------------
-// Since the data is currently not changing we dont need to make a clal to the
-// backend every time we select a new contry. For breavity will will only call
-// is teh contry have not been called yet
+// Since the data is currently not changing we dont need to make a call to the
+// backend every time we select a new contry. For breavity we will only call
+// if the country have not been called yet
 //------------------------------------------------------------------------------
-
-
 
 
 //NOTE: For now we will write the logic in the action

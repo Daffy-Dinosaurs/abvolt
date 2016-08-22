@@ -17,16 +17,13 @@ class App extends Component{
   constructor(props) {
     super(props);
 
-    console.log('these are the props in App: ', this.props);
-
-    //NOTE: This should run once to populate the state with countries
-    // this.props.requestCountries();
-    // this.props.getAllData();
+    //TODO: We need to build a spinner that that runners until the data populates
   }
 
   componentDidMount() {
+    //NOTE: This should run once to populate the state with countries
     this.props.requestCountries();
-    // this.props.getAllData();
+    this.props.getAllData();
   }
 
   render() {
