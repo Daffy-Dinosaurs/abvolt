@@ -7,6 +7,9 @@ const initialState = {};
 
 // TODO: We must either reconfigure how our action is built or settle that we will
 // be popualting the graphs with tweets from other countries, by same issue.
+
+// NOTE: future implementation. To make this a tool for various topics these prop
+// names should be converted in to gloabl variables that can be populated
 export default function(state = initialState, action) {
 
   if (action.type === twitter.GET_WATER_TWEETS) {

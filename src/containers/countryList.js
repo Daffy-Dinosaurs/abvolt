@@ -25,21 +25,20 @@ class CountryList extends Component {
   }
 
   renderList() {
-    return this.props.countryList.map((country) => {
-      return (
+    return this.props.countryList.map(country => (
         <li className="list-country-item" id={'c' + country.localeId}
-        key={country.countryName}
-        onClick={(event) => {
-          event.preventDefault();
-          this.props.selectCountry(country);
-          this.props.globeAction(country);
-          this.typeOfTweet(country);
+          key={country.countryName}
+          onClick={(event) => {
+            event.preventDefault();
+            this.props.selectCountry(country);
+            this.props.globeAction(country);
 
-          // this.props.getNews(country);
-          this.props.getWaterData(country.id);
-        }}>{ country.countryName }</li>
-      );
-    });
+            // this.typeOfTweet(country);
+
+            // this.props.getNews(country);
+            // this.props.getWaterData(country.id);
+          }}>{ country.countryName }</li>
+      ));
   }
 
   render() {

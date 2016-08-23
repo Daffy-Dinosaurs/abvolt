@@ -8,7 +8,7 @@ export default function(state = intialState, action) {
     return action.payload.data;
   }
 
-  if (action.type === 'COUNTRY_SELECTED') {
+  if (action.type === 'GLOBE_ACTION_SELECTED') {
     return action.payload;
   }
 

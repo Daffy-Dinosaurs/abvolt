@@ -33,6 +33,7 @@ class ActiveCountry extends Component {
   }
 
   render() {
+    console.log('these are the props passed to active country: ', this.props);
     if (this.state.visible) {
       if (this.props.activeCountry.countryName) {
         return (
@@ -40,7 +41,7 @@ class ActiveCountry extends Component {
           <h1 onClick= {
             this.changeProps.bind(this),
             this.hide.bind(this)
-          }> {this.props.activeCountry.countryName}</h1>
+          }> {this.props.activeCountry.country}</h1>
           <li className="country-view">
           { this.renderScreen() }
           </li>

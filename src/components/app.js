@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router';
-import ActiveCountry from '../containers/country-view';
+import ActiveCountry from '../containers/active_country';
 import CountryList from '../containers/countryList';
 import TwitterFeed from '../containers/twitter_feed';
 import Globe from '../containers/globeContainer';

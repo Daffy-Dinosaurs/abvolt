@@ -3,7 +3,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import _ from 'lodash';;
 import { clearTweets, getTweets } from '../actions/media_actions';
+import { selectTweets } from '../selectors/tweet_selector';
 
+//TODO: this needs a rebuild. separate out the render statement in to methods
+//
 class TwitterFeed extends Component {
   constructor(props) {
     super(props);
@@ -12,14 +15,19 @@ class TwitterFeed extends Component {
     };
     this.show = this.show.bind(this);
     this.hide = this.hide.bind(this);
+
+    console.log('this is selectTweets: ', selectTweets);
   }
 
   renderTweets() {
-    if (this.props.twitterFeed.length > 1) {
-      this.props.twitterFeed.shift();
+    let tweetFeed = selectTweets(this.props.issue.issue, this.props.twitterFeed);
+
+    if (tweetFeed.length > 1) {
+      tweetFeed.shift();
     }
 
-    var cleanTweets = this.props.twitterFeed.statuses;
+    //NOTE: consider abstracting this out to a selector
+    var cleanTweets = tweetFeed.statuses;
     var cleanTweetsObject = {};
     var tweetsArray = [];
     var regex = new RegExp(/htt\w+:\/\/\S+/);
@@ -92,8 +100,8 @@ class TwitterFeed extends Component {
   }
 }
 
-function mapStateToProps({ twitterFeed }) {
-  return { twitterFeed };
+function mapStateToProps({ twitterFeed, issue }) {
+  return { twitterFeed, issue };
 }
 
 function mapDispatchToProps(dispatch) {
