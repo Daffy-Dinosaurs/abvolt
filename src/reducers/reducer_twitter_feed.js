@@ -6,7 +6,10 @@ const initialState = {};
 // populate the twitterFeed per country, it is rewritten every call.
 
 // TODO: We must either reconfigure how our action is built or settle that we will
-// be popualting the graphs with tweets from other countries, by same issue.
+// be popualting the graphs with tweets from other countries, by same issue. The
+// reducer should have acces to teh state. If we can pull in the active country from
+// the state then we can set that as the property. This opens the door to limited api
+// calls.
 
 // NOTE: future implementation. To make this a tool for various topics these prop
 // names should be converted in to gloabl variables that can be populated
