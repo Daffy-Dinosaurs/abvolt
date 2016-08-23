@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import worldGlobe from '../components/world_view.js';
 import { overallAnnualData } from '../selectors/annual_selector';
 import { issueSelect, colorPopulate } from '../selectors/category_selector';
+import { setIssue } from '../actions/global_actions';
 
 //NOTE: This should be renamed to AnnualDataSlider
 class AnnualDataSlider extends Component {
@@ -28,6 +30,9 @@ class AnnualDataSlider extends Component {
 
   setCategory(category) {
     this.setState({ currentIssue: category,  issueSelected: true });
+
+    //NOTE: by creating this action I might have just made the above line obsolete
+    this.props.setIssue(category);
   };
 
   getCurrentIssue(data, year, category) {
@@ -86,4 +91,10 @@ function mapStateToProps({ allData }) {
   return { allData };
 };
 
-export default connect(mapStateToProps)(AnnualDataSlider);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    setIssue,
+  }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AnnualDataSlider);
