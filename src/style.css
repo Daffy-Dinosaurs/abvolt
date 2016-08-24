@@ -1,4 +1,4 @@
-.app{
+#app{
   font-family: 'Lato', sans-serif;
   background: url("/src/images/bg-min.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;

@@ -11,7 +11,7 @@ const initialState = {};
 // NOTE: future implementation. To make this a tool for various topics these prop
 // names should be converted in to gloabl variables that can be populated
 export default function(state = initialState, action) {
-
+  // console.log('twitter reducer: ', action);
   if (action.type === twitter.GET_WATER_TWEETS) {
     return { ...state, water_tweets: action.payload.data };
   }
