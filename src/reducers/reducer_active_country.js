@@ -3,7 +3,6 @@ const intialState = {};
 export default function(state = intialState, action) {
 
   if (action.type === 'COUNTRY_SELECTED') {
-    console.log('payload in selected country: ', action.payload);
     return { ...state, country: action.payload };
   }
 

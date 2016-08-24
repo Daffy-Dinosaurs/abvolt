@@ -1,7 +1,7 @@
 import 'babel-core/polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { connect, Provider } from 'react-redux';
+import { Provider, IntlProvider } from 'react-redux';
 import createLogger from 'redux-logger';
 import { createStore, applyMiddleware, compose } from 'redux';
 import rootReducer from './reducers/root.reducer';
@@ -19,12 +19,12 @@ const store = createStore(rootReducer, {}, compose(applyMiddleware(
 ));
 
 ReactDOM.render(
-  <Provider store={ store }>
+  <Provider store={store}>
     <Router history={hashHistory}>
-    <Route path="/" component={App}/>
-    <Route path="/d3Graphs" component={D3Graphs}/>
-    <Route path="/sandbox/jon" component={D3Graphs}/>
+      <Route path="/" component={App}/>
+      <Route path="/d3Graphs" component={D3Graphs}/>
+      <Route path="/sandbox/jon" component={D3Graphs}/>
     </Router>
   </Provider>,
-  document.querySelector('.app')
+  document.getElementById('.app')
 );

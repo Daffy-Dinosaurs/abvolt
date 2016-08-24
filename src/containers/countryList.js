@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { globeAction, selectCountry } from '../actions/global_actions';
-import { waterTweets } from '../actions/media_actions';
+import { waterTweets, povertyTweets, foodScarcityTweets } from '../actions/media_actions';
 import { getWaterData } from '../actions/db_actions';
 
 class CountryList extends Component {
@@ -18,22 +18,35 @@ class CountryList extends Component {
 
   //TODO: continue this pattern
   typeOfTweet(country) {
-    if (this.props.issue.issue === 'Water Pollution') {
+    //NOTE: this could be made into a selector
+
+    const { issue } = this.props;
+    let category = issue.issue;
+
+    if (category === 'Water Pollution') {
       this.props.waterTweets(country);
-      console.log('water tweets called');
+    }
+
+    if (category === 'Poverty') {
+      this.props.povertyTweets(country);
+    }
+
+    if (category === 'Food Scarcity') {
+      this.props.foodScarcityTweets(country);
     }
   }
 
   renderList() {
-    return this.props.countryList.map(country => (
+    const { countryList } = this.props;
+
+    return countryList.map(country => (
         <li className="list-country-item" id={'c' + country.localeId}
           key={country.countryName}
           onClick={(event) => {
             event.preventDefault();
             this.props.selectCountry(country);
             this.props.globeAction(country);
-
-            // this.typeOfTweet(country);
+            this.typeOfTweet(country);
 
             // this.props.getNews(country);
             // this.props.getWaterData(country.id);
@@ -60,6 +73,8 @@ function mapDispatchToProps(dispatch) {
     selectCountry,
     globeAction,
     waterTweets,
+    foodScarcityTweets,
+    povertyTweets,
 
     // getNews,
     getWaterData,

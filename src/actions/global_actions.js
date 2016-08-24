@@ -8,7 +8,6 @@ export function globeAction(country) {
 }
 
 export function selectCountry(country) {
-  console.log('args in selectCountry action', country);
   return {
     type: globalAction.COUNTRY_SELECTED,
     payload: country.countryName,

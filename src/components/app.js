@@ -13,15 +13,16 @@ import NewsOutlet from '../containers/news_outlet';
 import UserTour from './tourTips';
 import { requestCountries, getAllData } from '../actions/db_actions';
 
+//TODO: We need to build a spinner that that runners until the data populates.
+
+//TODO: This needs to be moved to conatiner folder.
 class App extends Component{
   constructor(props) {
     super(props);
 
-    //TODO: We need to build a spinner that that runners until the data populates
   }
 
   componentDidMount() {
-    //NOTE: This should run once to populate the state with countries
     this.props.requestCountries();
     this.props.getAllData();
   }

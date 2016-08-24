@@ -15,8 +15,6 @@ class TwitterFeed extends Component {
     };
     this.show = this.show.bind(this);
     this.hide = this.hide.bind(this);
-
-    console.log('this is selectTweets: ', selectTweets);
   }
 
   renderTweets() {
@@ -60,6 +58,7 @@ class TwitterFeed extends Component {
     this.props.twitterFeed = [];
   }
 
+  //NOTE: Highly considering removing this. Goes against Redux best practice
   clearTweet() {
     this.props.clearTweets();
   }
@@ -73,8 +72,10 @@ class TwitterFeed extends Component {
   }
 
   render() {
+    const { twitterFeed } = this.props;
+
     if (this.state.visible) {
-      if (this.props.twitterFeed.statuses) {
+      if (twitterFeed.water_tweets || twitterFeed.poverty_tweets || twitterFeed.food_tweets) {
         return (
           <div className="tweet-feed-visible">
           <h1 onClick= {

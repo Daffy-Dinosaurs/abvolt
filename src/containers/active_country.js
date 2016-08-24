@@ -33,15 +33,17 @@ class ActiveCountry extends Component {
   }
 
   render() {
-    console.log('these are the props passed to active country: ', this.props);
+    const { activeCountry } = this.props;
+
+    console.log('testing state props: ', activeCountry);
     if (this.state.visible) {
-      if (this.props.activeCountry.countryName) {
+      if (activeCountry.country) {
         return (
           <div className="countryTitle">
           <h1 onClick= {
             this.changeProps.bind(this),
             this.hide.bind(this)
-          }> {this.props.activeCountry.country}</h1>
+          }> {activeCountry.country}</h1>
           <li className="country-view">
           { this.renderScreen() }
           </li>
@@ -53,7 +55,7 @@ class ActiveCountry extends Component {
     if (!this.state.visible) {
       console.log('DO NOTHING');
       return <div className="countryTitle">
-      <h1 onClick={this.show.bind(this)}>{this.props.activeCountry.countryName}</h1>
+      <h1 onClick={this.show.bind(this)}>{activeCountry.country}</h1>
       </div>;
     }
   }
